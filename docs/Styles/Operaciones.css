@@ -1,0 +1,49 @@
+.show{
+    display: block !important;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.initial{
+    display: none;
+}
+
+.initialValue{
+    display: block;
+}
+
+
+.form-operaciones{
+    padding :5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.form-operaciones input , select {
+    flex-grow: 1 ;
+    
+} 
+
+#operaciones{ 
+   border: none;
+   padding: 5px;
+   background-color: crimson;
+   color: white;
+   margin: 10px auto;
+}
+
+#operaciones option {
+    background-color:  rgba(32, 16, 68, 0.815);;
+    border: 1px solid rgb(26, 16, 16) !important;
+}
+
+.block{
+    display: block;
+}
+

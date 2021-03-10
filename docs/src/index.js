@@ -151,9 +151,6 @@ window.onload = () => {
                       contentResult.style.display = 'block';
                       contentResult.innerHTML = PlantillaResult; 
                    
-                   }else{
-
-                
                    }
 
 
