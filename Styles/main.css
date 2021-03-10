@@ -5,6 +5,9 @@
 
 body{
     background: linear-gradient(to right, rgb(6, 82, 182), rgb(184, 19, 199));
+    background: -moz-linear-gradient(to right, rgb(6, 82, 182), rgb(184, 19, 199));
+    background: -o-linear-gradient(to right, rgb(6, 82, 182), rgb(184, 19, 199));
+    background: -webkit-linear-gradient(to right, rgb(6, 82, 182), rgb(184, 19, 199));
     height: 100vh;
 }
 
@@ -34,6 +37,8 @@ body::-webkit-scrollbar-thumb{
 .bannner{
    width: 100%;
    background:  linear-gradient(to right , rgb(26, 25, 25) , gray);
+   background:   -o-linear-gradient(to right , rgb(26, 25, 25) , gray);
+   background:  -webkit-linear-gradient()(to right , rgb(26, 25, 25) , gray);
    color: white;
    text-align: center;
 }
