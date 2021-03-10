@@ -76,7 +76,7 @@ function FormatearNumero(numero , base , baseComvetir){
     
     if( parseInt(base)  === 2 || parseInt(baseComvetir) === 2 ){
             
-        numero.replace(/\B(?=(\d{4})+(?!\d))/g, " ");    
+       return  numero.replace(/\B(?=(\d{4})+(?!\d))/g, " ");    
     }
     const num1 =  numero.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     const num2 = num1.toUpperCase();
