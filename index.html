@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">    
+    <link rel="stylesheet" href="./Styles/main.css">
+    <title>Comvertidor de Numeros</title>
+</head>
+
+<body>
+    <header class="bannner">
+        <h1 class="banner-title">Bievenido al comvertido de Numeros</h1>
+        <nav class="nav-bar">
+               <h3>Navegacion</h3>
+              <a href="./Operaciones.html" class="links">Operaciones</a>
+        </nav>
+        <div class="clear-float"></div>
+    </header>
+    <section class="content-main">
+        <h2>Llene correctamente los campos</h2>
+        <form class="transfrom-from" id="form">
+            <p>
+                <label class="form-label" for="baseNumero">Base del numero a comvertir<label>
+                <input class="form-control" type="number" name="baseNumero" id="baseNumero"  placeholder="Base del nuemero" required max="16" min="2">
+             </p>
+            <p>
+               <label class="form-label" for="numero">Ingrese el nuemro a comvertir<label>
+               <input class="form-control" type="text" name="numero" id="numero"  placeholder="Ingrese su numero" required autocomplete="off">
+            </p>
+            <p>
+                <label class="form-label" for="base">Ingrese la base a comvertir</label>
+                <input class="form-control" type="number" name="base" id="base" placeholder="Base a comvertir" required max="16" min="2">
+            </p>
+
+            <button type="submit" class="btn btn-primary">Comvertir</button>
+        </form>
+    </section>
+    <section class="content-result animate__animated animate__backInUp " id="resultado" style="display: none;">
+
+    </section>
+
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="./src/index.js" ></script>
+</body>
+
+</html>
