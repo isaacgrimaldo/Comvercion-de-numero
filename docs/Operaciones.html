@@ -20,57 +20,56 @@
         <h1 class="banner-title">Operaciones con bases</h1>
         <nav class="nav-bar">
              <a   class="links" href="./index.html">Home</a>       
-         </nav>
+        </nav>
     </header>
     <section class="content-main">
-          <h2>Operaciones</h2>
-          <form class="form-operaciones">
+          
+        <h2>Operaciones</h2>
+
+          <form class="form-operaciones" id="OperacionesSub">
               <label for="operaciones" class="form-label">Seleccione una operacion</label>
-               <select name="operaciones" id="operaciones">
-                    <option value="suma">Suma</option>
+               <select name="operaciones" id="operaciones" required>
+                    <option selected value="suma" >Suma</option>
                     <option value="resta">Resta</option>
                     <option value="multiplicacion">Multiplicacion</option>
                     <option value="divicion">Divicion</option>
-                    
-               </select>
+               </select> 
                 <p>
                     <label for="baseOperacion" class="form-label block">Ingrese la base de la operacion</label>
-                    <input type="number"  name="baseOperacion"  id="baseOperacion" placeholder="Ingrese una base"  >
+                    <input type="number"  name="baseOperacion"  id="baseOperacion" placeholder="Ingrese una base"  required min="2" max="16" >
                 </p>
                 <div id="suma" class="initialValue animate__animated animate__backInLeft">
-                             <p >Escriba los lumeros a sumar</p> 
-                          <input type="text" id='sumNum1' placeholder="Ingrse un numero"> +  <input type="text" id="sumNum2" placeholder="Ingrse un numero">
+                             <p id="instruccion"></p> 
+                          
+                                <input type="text" 
+                                 id='Num1' 
+                                 placeholder="Ingrse un numero" 
+                                 autocomplete="off" 
+                                 required
+                                 > 
+                                 <span id="Operador">+</span>
+
+                                 <input type="text" 
+                                 id="Num2" 
+                                 placeholder="Ingrse un numero" 
+                                 autocomplete="off" 
+                                 required>
                           <p>
+
                               <button type="submit" class="btn btn-primary mt-3" >Hacer Operacion</button>
                           </p>
                 </div>
 
-                <div id="resta"  class="initial animate__animated animate__backInLeft"> 
-                    <p>Escriba los lumeros a restar</p> 
-                    <input type="text" id="resNum1" placeholder="Ingrse un numero">  - <input type="text" id="resNum2" placeholder="Ingrse un numero"> 
-                    <p>
-                        <button type="submit" class="btn btn-primary mt-3">Hacer Operacion</button>
-                    </p>
-                </div>
-
-                <div id="multiplicacion" class="initial animate__animated animate__backInUp">
-                    <p>Escriba los lumeros a Multiplicar</p> 
-                    <input type="text" id="mulNum1" placeholder="Ingrse un numero"> x  <input type="text"  placeholder="Ingrse un numero">
-                    <p>
-                        <button type="submit" class="btn btn-primary mt-3" >Hacer Operacion</button>
-                    </p>
-                </div>
-
-                <div id="divicion" class="initial animate__animated animate__backInUp">
-                    <p>Escriba los lumeros a Dividir</p> 
-                    <input type="text" placeholder="Ingrse un numero"> /  <input type="text" placeholder="Ingrse un numero">
-                    <p>
-                        <button type="submit" class="btn btn-primary mt-3">Hacer Operacion</button>
-                    </p>
-                </div>
-                
+               
           </form>
+
     </section>
-    <script    src="./src/modulos.js" type="module"></script>
+
+    <div class="content-result animate__animated animate__backInUp initial" id="divResultado"   >
+            
+    </div>
+      
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script  src="./js/modulos.js" type ='module'></script>
 </body>
 </html>

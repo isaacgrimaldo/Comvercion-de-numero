@@ -75,6 +75,7 @@ body::-webkit-scrollbar-thumb{
     background-color: rgba(12, 11, 11, 0.829);
     box-shadow: 2px 5px 30px black;
     color: aliceblue;
+    text-align: center;
 }
 
 .content-main  h2{
@@ -164,4 +165,75 @@ body::-webkit-scrollbar-thumb{
 
 .swal2-title{
     color:white !important;
+}
+
+.show{
+    display: block !important;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.initial{
+    display: none;
+}
+
+.initialValue{
+    display: block;
+}
+
+.fade{
+    animation: .3s  fade 1;
+   -webkit-animation:  .3s  fade 1;
+    -o-animation: .3s  fade 1;
+   -moz-animation: .3s  fade 1;    
+}
+
+@keyframes fade {
+     0%{
+         opacity: 0.0;
+     }
+
+     70%{
+         opacity: 0.8;
+     }
+ 
+}
+
+@-webkit-keyframes fade{
+   
+    0%{
+        opacity: 0.0;
+    }
+
+    70%{
+        opacity: 0.8;
+    }
+}
+
+
+@-moz-keyframes fade{ 
+     
+    0%{
+        opacity: 0.0;
+    }
+
+    70%{
+        opacity: 0.8;
+    }
+
+}
+
+
+@-o-keyframes fade {
+   
+    0%{
+        opacity: 0.0;
+    }
+
+    70%{
+        opacity: 0.8;
+    }
+
 }

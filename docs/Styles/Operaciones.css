@@ -1,18 +1,3 @@
-.show{
-    display: block !important;
-}
-
-.hidden{
-    display: none !important;
-}
-
-.initial{
-    display: none;
-}
-
-.initialValue{
-    display: block;
-}
 
 
 .form-operaciones{
@@ -27,8 +12,14 @@
 
 .form-operaciones input , select {
     flex-grow: 1 ;
-    
+    text-align: center;
 } 
+
+.form-operaciones input:focus{
+    box-shadow: -2px 2px  30px  rgb(23, 73, 211);
+}
+
+
 
 #operaciones{ 
    border: none;
