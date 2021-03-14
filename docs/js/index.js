@@ -1,146 +1,81 @@
-
-var MensajeError = '';
-
-var limiteLetras = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
-    'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-];
-
-
-
-
-function verificacionHex(base, ArrayNumero) {
-
-
-    const numeroBase = parseInt(base);
-    let validacion = true;
-    let limite = [];
-
-    //validacion de base  2 a 10
-    if (numeroBase >= 2 && numeroBase <= 10) {
-        ArrayNumero.forEach(num => {
-            for (let i = 0; i < limiteLetras.length; i++) {
-                if (num.includes(limiteLetras[i])) {
-                    validacion = false;
-                    MensajeError = `La base ${base} no puede tener letras solo numeros del 0-${(numeroBase - 1)}`
-                }
-            }
-        })
-    }
-
-
-    if (numeroBase >= 11 && numeroBase <= 20) {
-
-        for (let i = 10; i <= numeroBase; i++) {
-            if (i > 10 && i <= numeroBase) {
-                limite.push(limiteLetras[i - 11])
-            }
-        }
-
-    }
-
-
-    let ArrayVerefic = [];
-    let Temporal = [...limiteLetras];
-    //sacamos el array para la verificacion
-    for (let i = 0; i < limiteLetras.length; i++) {
-
-        if (i != 0) {
-            Temporal = ArrayVerefic;
-        }
-
-        for (let j = 0; j < limite.length; j++) {
-            if (limiteLetras[i] === limite[j]) {
-                Temporal = [...Temporal.filter(L => L != limite[j])]
-                ArrayVerefic = [...Temporal];
-            }
-        }
-    };
-
-    //verificacion hexadecimal
-    ArrayNumero.forEach(num => {
-        for (let i = 0; i < ArrayVerefic.length; i++) {
-            if (num.includes(ArrayVerefic[i])) {
-                validacion = false;
-                MensajeError = `Alguna letras no entra en el rango de la base`;
-            }
-        }
-    });
-
-
-    return validacion;
-
-};
-
-
-function FormatearNumero(numero, base, baseComvetir) {
-
-    if (parseInt(base) === 2 || parseInt(baseComvetir) === 2) {
-
-        return numero.replace(/\B(?=(\d{4})+(?!\d))/g, " ");
-    }
-    const num1 = numero.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    const num2 = num1.toUpperCase();
-    return num2;
-};
+//importacion de funcionalidades
+import {Comvercion} from './helpers/PasosComvercion.js';
+import {FormateoDeNumero} from './helpers/Formateo.js';
+import {AutorizacionComver} from './helpers/validaciones.js';
+import{platillaReglas , sizesWidhtScreen} from './helpers/Reglas.js' 
 
 
 
 
+function GenerarAlerta (Mensaje , Focus , deletResult){
+   
+    
+    Focus.focus();
+    Focus.classList.add('errorNum')
+    deletResult.style.display = 'none';
 
-function VerificacioComvercion(numero, base) {
+ let sizesAlar = sizesWidhtScreen();
+    console.log(sizesAlar)
+    
 
-    const numeroComparar = numero.toUpperCase();
-    let verificacion = true;
-
-    const ArrayNumeroComvetir = numeroComparar.split('');
-
-    ArrayNumeroComvetir.forEach(Numero => {
-
-        if (parseInt(Numero) >= parseInt(base)) {
-            verificacion = false;
-            MensajeError = `en la base ${base} solo se permiten valores del ${'0  -' + (parseInt(base) - 1)}`
-        }
-    })
-
-    const validhex = verificacionHex(base, ArrayNumeroComvetir);
-    if (!validhex) {
-        verificacion = false;
-    }
-
-
-
-    return verificacion;
+    //alarma configurada
+    Swal.fire({
+       titleText:'Error en los datos',
+        text: Mensaje,
+        icon:'error',
+        iconColor:'red',
+        background : 'linear-gradient(to bottom, rgb(14, 13, 13)  ,  rgb(199, 21, 9) 85%  )', 
+        width: '80%', 
+    }) 
+     
 }
 
+function CerrarPasos(){
+     const HtmlDivPasos = document.getElementById('DivPasos')
+     const btnPasos = document.getElementById('paso');   
+           HtmlDivPasos.innerHTML = ''
+           HtmlDivPasos.classList.add('initial')
+           btnPasos.classList.add('initial')
+}
 
+function CerraReglas(){
+    const HtmlDivPasos = document.getElementById('ValoreHex')
+    HtmlDivPasos.innerHTML = ''
+    HtmlDivPasos.classList.add('initial')    
+}
 
 window.onload = () => {
 
+    const HtmlDivPasos = document.getElementById('DivPasos');
 
     /*Conversor de nuemeros a diferentes bases*/
     document.getElementById('form').onsubmit = (e) => {
         e.preventDefault();
+        CerrarPasos()
+        CerraReglas()
+        //optencion de variables y elemetos HTML  para el programa
         const baseNumero = document.getElementById('baseNumero').value;
         const NumeroElementHTML = document.getElementById('numero');
         const Numero = document.getElementById('numero').value;
         const transfromBase = document.getElementById('base').value;
         const contentResult = document.getElementById('resultado');
+        const HTMLpasos = document.getElementById('paso');
 
 
         //inicio de la comprovacion para poder comvertir 
-        const PermisoComvertir = VerificacioComvercion(Numero, baseNumero);
+        const PermisoComvertir = AutorizacionComver(Numero , baseNumero);
+        const {Autorizacion:AuthNum, Mensaje} = PermisoComvertir;
+   ;
 
-
-        if (PermisoComvertir) {
+        if (AuthNum) {
             //se comvierte el numero a la base desea
-            const numSinEspacios = Numero.replace(/ /g, "");
+            const numSinEspacios = Numero.replace(/ /g, "").replace(',','');
             const numTransHisBase = parseInt(numSinEspacios, baseNumero);
            
-            if ( numTransHisBase !== NaN) {
                 NumeroElementHTML.classList.remove('errorNum');
 
                 const numsinFormatiar = numTransHisBase.toString(transfromBase);
-                const numResult = FormatearNumero(numsinFormatiar, transfromBase, baseNumero);
+                const numResult = FormateoDeNumero(numsinFormatiar, transfromBase);
 
                 const PlantillaResult = `
                             <p>Numero  Comvertido de base ${baseNumero} a  base ${transfromBase}</p>
@@ -150,41 +85,51 @@ window.onload = () => {
                 //Imprimimos el numero en pantalla
                 contentResult.style.display = 'block';
                 contentResult.innerHTML = PlantillaResult;
-
-             } else {
-                    //si un error en los datos 
-                NumeroElementHTML.focus();
-                NumeroElementHTML.classList.add('errorNum');
-                contentResult.style.display = 'none'
-                 Swal.fire({
-                    titleText: 'Error en los datos',
-                    text: 'Ingrese Correctamente los datos',
-                    icon: 'error',
-                    iconColor: 'red',
-                    background: 'linear-gradient(to bottom, rgb(14, 13, 13)  ,  rgb(199, 21, 9) 85%  )',
-                    width: '50%',
-                 })
-              }
-
-        } else {
-
-            //si un error en los datos 
-            NumeroElementHTML.focus();
-            NumeroElementHTML.classList.add('errorNum');
-            contentResult.style.display = 'none'
-
-
-            //alarma configurada
-            Swal.fire({
-                titleText: 'Error en los datos',
-                text: MensajeError,
-                icon: 'error',
-                iconColor: 'red',
-                background: 'linear-gradient(to bottom, rgb(14, 13, 13)  ,  rgb(199, 21, 9) 85%  )',
-                width: '50%',
-            })
+                
+                /*Se perimite la opcion de mostar pasos*/
+                HTMLpasos.classList.remove('initial');
+                MostarPasos(Numero , baseNumero , transfromBase);
+ 
+        } else if(!AuthNum){
+           GenerarAlerta(Mensaje, NumeroElementHTML , contentResult)
+           CerrarPasos()
+           CerraReglas()
         }
 
 
     }
+
+    const MostarPasos  = (num ,  base , toBase) => {
+         
+         const ControlPasos = document.getElementById('paso');
+               ControlPasos.onclick = () => {
+                  const Paso =  [...Comvercion(num , base , toBase)]  
+                
+                  // se muestran los pasos generados
+                   HtmlDivPasos.classList.remove('initial'); 
+                   const  HTMLPaso = Paso.join('');
+                   HtmlDivPasos.innerHTML = HTMLPaso; 
+                   
+                   
+                   
+                   const btnRelas = document.getElementById('reglasHex');
+                   if(btnRelas){
+
+                       MostarReglasHexa()
+                   }
+               }
+    }
+
+    
+   const MostarReglasHexa = () =>{
+       const btnRelas = document.getElementById('reglasHex');
+             btnRelas.onclick= () => {
+                 const DivReglas = document.getElementById('ValoreHex')
+                       DivReglas.classList.remove('initial');
+                       const platilla = platillaReglas()
+                       DivReglas.innerHTML = platilla ; 
+                
+             }
+   }
+
 };

@@ -19,11 +19,14 @@ body{
 }
 
 body::-webkit-scrollbar-track{
-    background:  rgb(27, 26, 26);;
+    background: linear-gradient(to right, rgb(6, 82, 182), rgb(184, 19, 199));
+    background: -moz-linear-gradient(to right, rgb(6, 82, 182), rgb(184, 19, 199));
+    background: -o-linear-gradient(to right, rgb(6, 82, 182), rgb(184, 19, 199));
+    background: -webkit-linear-gradient(to right, rgb(6, 82, 182), rgb(184, 19, 199));
 }
 
 body::-webkit-scrollbar-thumb{
-     background-color:   rgba(12, 11, 11, 0.829);
+     background-color:   rgba(92, 91, 91, 0.829);
      border: none;
      border-radius: 10px;
 }
@@ -35,38 +38,51 @@ body::-webkit-scrollbar-thumb{
 
 
 .bannner{
-   width: 100%;
-   background:  linear-gradient(to right , rgb(26, 25, 25) , gray);
-   background:   -o-linear-gradient(to right , rgb(26, 25, 25) , gray);
-   background:  -webkit-linear-gradient()(to right , rgb(26, 25, 25) , gray);
-   color: white;
-   text-align: center;
-}
-
-.links{
-    text-decoration: none;
-    font-size: 18px;
-    color: bisque;
-}
-
-.links:hover{
-    color: brown;
-    font-size: 25px;
-    transition:  .4s all;
-}
-
-
-.nav-bar{
-    margin: 0px auto;
-    background-color: rgb(23, 73, 211);
+    width: 100%;
+    background-color: rgba(46, 42, 42, 0.986);
+    color: white;
+    text-align: center;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    grid-template-rows: 100%;
 }
 
 
 .banner-title{
-    line-height: 90px;
+    grid-column: 1/3;
+    font-size: 25px;
     text-transform: uppercase;
     text-shadow: 1px 1px 10px black;
+    float: right;
+    line-height: 50px ;
+   
+    margin: 0px;
 }
+
+.nav-bar{
+    grid-column: 3/4;
+    float: right;
+}
+
+
+.links{
+    text-decoration: none;
+    font-size: 22px;
+    color: bisque;
+    margin: 5px 5px 0px 0px;
+}
+
+.links:hover{
+    color: brown;
+    transition:  .4s all;
+
+}
+
+
+
+
+
 
 .content-main{
     width: 50vw;
@@ -82,6 +98,9 @@ body::-webkit-scrollbar-thumb{
    border-bottom: 1.5px solid gainsboro ;
    text-align: center;
    margin-bottom: 30px;
+   font-size: 1.5rem;
+   font-weight: 700 ;
+
 }
 
 .transfrom-from{
@@ -122,6 +141,8 @@ body::-webkit-scrollbar-thumb{
     text-align: center;
     border-radius: 10px;
     color: white ;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
 }
 
 .content-result  p  {
@@ -131,27 +152,75 @@ body::-webkit-scrollbar-thumb{
     
 }
 
-
-@media screen and (max-width: 772px) {
-    .banner-title{
-        font-size: 20px;
-    }
-
-    .content-result{
-        width: 60vw;
-    }
+.content-Pasos{
+    width: 60vw;
+    margin: 5px auto;
+    padding: 5px ;
+    background-color: rgba(12, 11, 11, 0.829);
+    box-shadow: 2px 5px 30px black;
+    text-align: center;
+    border-radius: 10px;
+    color: rgb(183, 183, 184) ;
+    margin-bottom: 2rem;
 }
 
-@media screen and (max-width: 374px) {
-    .content-main h2{
-        font-size: 15px;
-    }
-
-    .content-result{
-        width: 50vw;
-    }
-
+.content-Pasos p {
+      font-weight: 700;
+      text-align: center;
+      
 }
+
+.content-Pasos .residuo{
+    color: rgb(212, 14, 136);
+    
+}
+
+.content-Pasos .im-intruc{
+    color: rgba(223, 58, 16, 0.89);
+    font-size: 1.1rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.content-Pasos .resultado{
+    color: rgb(212, 14, 136);
+    font-size: 1.1rem;
+}
+
+.content-Pasos .MulResult{
+   color: crimson;    
+}
+
+
+#paso{
+    background-color: rgba(235, 5, 62, 0.829);
+    color: wheat;
+    position: fixed;
+    right: 0px;
+    top: 80vh;
+    font-size: 1rem;
+    margin-right:  5px ;
+    padding: .5rem;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.ValoreHex{
+    width: 120px;
+    background-color: rgb(167, 11, 76);
+    color: rgba(12, 11, 11, 0.952);
+    margin-left: .2rem;
+    position: fixed;   
+    left: 0px;
+    bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+ }
+
+
 
 /*Clases que se manejas con javascript*/
 .errorNum:focus{
@@ -189,6 +258,7 @@ body::-webkit-scrollbar-thumb{
     -o-animation: .3s  fade 1;
    -moz-animation: .3s  fade 1;    
 }
+
 
 @keyframes fade {
      0%{

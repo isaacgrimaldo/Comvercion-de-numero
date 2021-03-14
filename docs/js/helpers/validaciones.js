@@ -1,6 +1,6 @@
 
 
-var limiteLetras = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+export var limiteLetras = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
     'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 ];
 
@@ -62,13 +62,13 @@ const ValidacionHex = (num, base) => {
         //se optiene el array con las letras no aceptadas
         let LetrasCompracion = []
         let Tem = [...limiteLetras];
-        for (let i = 0; i < limiteLetras.length; i++) {
+        for (let i = 0; i < LetrasAceptadas.length; i++) {
 
             if (i != 0) {
                 Tem = [...LetrasCompracion]
             }
 
-            for (let j = 0; j < LetrasAceptadas.length; j++) {
+            for (let j = 0; j < limiteLetras.length; j++) {
 
                 if (limiteLetras[i] === LetrasAceptadas[j]) {
                     Tem = [...Tem.filter(L => L != LetrasAceptadas[i])];
@@ -117,7 +117,6 @@ const AutorizacionComver = (num, base) => {
     }
 
 
-    console.log(Mensaje);
     return {
         Autorizacion,
         Mensaje,

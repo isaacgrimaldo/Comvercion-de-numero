@@ -51,7 +51,7 @@ function ImprimirDatosPantalla(resultado , numero1 , numero2, operacion, base ){
        divResutlHTML.innerHTML = Plantilla;
 }
 
-function GenerarAlerta (Mensaje , Focus){
+ function GenerarAlerta (Mensaje , Focus){
    
        
        //borramos los datos anteriores

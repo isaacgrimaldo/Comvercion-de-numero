@@ -1,0 +1,115 @@
+@media  (max-width: 772px) {
+    .banner-title{
+        font-size: 1.1rem;
+    }
+
+   .content-main h2{
+       font-size: 1rem;
+   }
+
+   .content-result{
+       font-size: .8rem;
+   }
+}
+
+
+
+@media (max-width : 620px){
+     
+    .ValoreHex{
+        width: 90px;
+    }
+
+    #paso{
+        width: 110px;
+        font-size: .9rem;
+    }
+
+    .content-Pasos{
+        width: 55vw;
+        font-size: .8rem;
+    }
+}
+
+@media(max-width: 500px){
+     
+    .banner-title{
+        font-size: .9rem;
+    }
+    .content-main h2{
+        font-size: .8rem;
+    }
+
+    .links{
+        font-size: 1rem;
+    }
+
+    .content-main{
+        font-size: .9rem;
+    }
+
+    #paso{
+        width: 80px;
+        font-size: .8rem;
+    }
+}
+
+
+@media  (max-width: 400px) {
+     
+    .banner{
+        width: 110%;
+    } 
+
+    .banner-title{
+        font-size: .75rem;
+    }
+    
+    .content-main{
+        width: 60vw;
+    }
+    .content-main h2{
+        font-size:  .7rem;
+    }
+
+    .content-result{
+        width: 45vw;
+    }
+
+    .ValoreHex{
+        width: 60px;
+        font-size: .8rem;
+    }
+
+    #paso{
+        left: 0px;
+        top: 220px;
+        width: 55px;
+        margin-left: 4px;
+        background-color: rgba(12, 11, 11, 0.829) ;
+    }
+    
+    
+    body{
+        background: rgb(16, 60, 143);
+    }
+     
+    .content-Pasos{
+        width: 70vw;
+        float: right;
+        margin-right: 15px;
+    }
+
+    .content-Pasos .im-intruc{
+        font-size: .9rem;
+    }
+
+    .content-Pasos .resultado{
+        font-size: .9rem;
+    }
+
+    #reglasHex{
+        padding: 5px;
+        font-size: .8rem;
+    }
+}
