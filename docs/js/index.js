@@ -14,10 +14,8 @@ function GenerarAlerta (Mensaje , Focus , deletResult){
     Focus.classList.add('errorNum')
     deletResult.style.display = 'none';
 
- let sizesAlar = sizesWidhtScreen();
-    console.log(sizesAlar)
+    let sizesAlar = sizesWidhtScreen();
     
-
     //alarma configurada
     Swal.fire({
        titleText:'Error en los datos',
@@ -25,7 +23,7 @@ function GenerarAlerta (Mensaje , Focus , deletResult){
         icon:'error',
         iconColor:'red',
         background : 'linear-gradient(to bottom, rgb(14, 13, 13)  ,  rgb(199, 21, 9) 85%  )', 
-        width: '80%', 
+        width: sizesAlar, 
     }) 
      
 }
